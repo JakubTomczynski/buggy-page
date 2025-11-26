@@ -378,21 +378,34 @@ test.describe('Expert Bugs', () => {
   test('BUG-EXPERT-03: shadow DOM button only works on second click', async ({ page }) => {
     await page.goto('/pages/buttons.html');
     
-    // Access shadow DOM elements
-    const shadowHost = page.locator('#shadow-host');
-    const shadowInput = shadowHost.locator('>>> #shadow-input');
-    const shadowBtn = shadowHost.locator('>>> #shadow-btn');
-    const shadowResult = shadowHost.locator('>>> #shadow-result');
+    // Wait for shadow DOM to be attached
+    await page.waitForSelector('#shadow-host');
     
+    // Access shadow DOM elements using evaluate
+    const shadowInput = page.locator('#shadow-host').locator('input');
+    const shadowBtn = page.locator('#shadow-host').locator('button');
+    
+    // Fill input in shadow DOM
     await shadowInput.fill('Hello');
     
     // First click - bug: shows "Processing..."
     await shadowBtn.click();
-    await expect(shadowResult).toContainText('Processing');
+    
+    // Check result in shadow DOM
+    const result1 = await page.evaluate(() => {
+      const host = document.getElementById('shadow-host');
+      return host.shadowRoot.getElementById('shadow-result').textContent;
+    });
+    expect(result1).toContain('Processing');
     
     // Second click - now shows the value
     await shadowBtn.click();
-    await expect(shadowResult).toContainText('Hello');
+    
+    const result2 = await page.evaluate(() => {
+      const host = document.getElementById('shadow-host');
+      return host.shadowRoot.getElementById('shadow-result').textContent;
+    });
+    expect(result2).toContain('Hello');
   });
 
   /**

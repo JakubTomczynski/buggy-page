@@ -50,8 +50,8 @@
                 <form id="required-form">
                     <div class="form-group">
                         <label for="required-input">Required Username *</label>
-                        <!-- Note: 'required' attribute is present but JavaScript doesn't validate it -->
-                        <input type="text" id="required-input" placeholder="Enter username" required>
+                        <!-- BUG: Label says "Required" but the field has no validation -->
+                        <input type="text" id="required-input" placeholder="Enter username">
                     </div>
                     <button type="submit" class="btn">Submit</button>
                 </form>
