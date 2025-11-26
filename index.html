@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buggy Page - QA Training Ground</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">🐛 Buggy Page</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/forms.html">Forms</a></li>
+                <li><a href="pages/buttons.html">Buttons</a></li>
+                <li><a href="pages/links.html">Links</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Buggy Page</h1>
+            <p class="subtitle">A deliberately buggy webpage for training manual testers and automation testers</p>
+            <!-- BUG-EASY-05: Visible Lorem Ipsum text that shouldn't be there -->
+            <p class="lorem-text" data-bug-id="BUG-EASY-05">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </section>
+
+        <section class="categories">
+            <h2>Explore Bug Categories</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>📝 Forms</h3>
+                    <p>Test buggy form validations, inputs, and submissions</p>
+                    <a href="pages/forms.html" class="btn">Explore Forms</a>
+                </div>
+                <div class="card">
+                    <h3>🔘 Buttons</h3>
+                    <p>Interact with buttons that have various issues</p>
+                    <a href="pages/buttons.html" class="btn">Explore Buttons</a>
+                </div>
+                <div class="card">
+                    <h3>🔗 Links</h3>
+                    <p>Navigate through broken and buggy links</p>
+                    <a href="pages/links.html" class="btn">Explore Links</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Bug Difficulty Levels</h2>
+            <div class="difficulty-grid">
+                <div class="difficulty-item easy">
+                    <span class="level">🟢 Easy</span>
+                    <p>Obvious bugs for beginners</p>
+                </div>
+                <div class="difficulty-item medium">
+                    <span class="level">🟡 Medium</span>
+                    <p>Requires some investigation</p>
+                </div>
+                <div class="difficulty-item hard">
+                    <span class="level">🟠 Hard</span>
+                    <p>Timing and state issues</p>
+                </div>
+                <div class="difficulty-item expert">
+                    <span class="level">🔴 Expert</span>
+                    <p>Complex, flaky behaviors</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUG-MEDIUM-06: Hidden element that should be visible -->
+        <section class="hidden-section" data-bug-id="BUG-MEDIUM-06">
+            <h2>Special Offers</h2>
+            <p>Get 50% off on all premium features!</p>
+        </section>
+
+        <section class="quick-demo">
+            <h2>Quick Demo</h2>
+            <div class="demo-container">
+                <!-- BUG-MEDIUM-05: Counter increments by 2 instead of 1 -->
+                <div class="counter-widget" data-bug-id="BUG-MEDIUM-05">
+                    <p>Click Counter: <span id="main-counter">0</span></p>
+                    <button id="increment-btn" class="btn">Increment</button>
+                </div>
+                
+                <!-- BUG-EASY-02: Missing alt text on images -->
+                <div class="image-demo">
+                    <img src="https://via.placeholder.com/200x150" data-bug-id="BUG-EASY-02">
+                    <p>Sample Image</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buggy Page - For QA Training Purposes</p>
+            <!-- Subtle link to cheat sheet -->
+            <a href="cheatsheet.html" class="cheatsheet-link">📋</a>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

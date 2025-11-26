@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms - Buggy Page</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.html">🐛 Buggy Page</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="forms.html" class="active">Forms</a></li>
+                <li><a href="buttons.html">Buttons</a></li>
+                <li><a href="links.html">Links</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>📝 Buggy Forms</h1>
+            <p class="subtitle">Test your skills finding form validation bugs</p>
+        </section>
+
+        <div class="form-container">
+            <!-- BUG-MEDIUM-01: Form accepts invalid email format -->
+            <section class="button-section" data-bug-id="BUG-MEDIUM-01">
+                <h3>🟡 Email Validation</h3>
+                <p>Try submitting various email formats</p>
+                <form id="email-form">
+                    <div class="form-group">
+                        <label for="email-input">Email Address</label>
+                        <!-- BUG-EASY-04: Wrong placeholder text -->
+                        <input type="text" id="email-input" placeholder="Enter your phone number" data-bug-id="BUG-EASY-04">
+                    </div>
+                    <button type="submit" class="btn">Validate Email</button>
+                </form>
+                <div id="email-result"></div>
+            </section>
+
+            <!-- BUG-MEDIUM-02: Required field not actually required -->
+            <section class="button-section" data-bug-id="BUG-MEDIUM-02">
+                <h3>🟡 Required Field Form</h3>
+                <p>This field is marked as required, but is it really?</p>
+                <form id="required-form">
+                    <div class="form-group">
+                        <label for="required-input">Required Username *</label>
+                        <!-- Note: 'required' attribute is present but JavaScript doesn't validate it -->
+                        <input type="text" id="required-input" placeholder="Enter username" required>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+                <div id="required-result"></div>
+            </section>
+
+            <!-- BUG-MEDIUM-03: Wrong success message -->
+            <section class="button-section" data-bug-id="BUG-MEDIUM-03">
+                <h3>🟡 Contact Form</h3>
+                <p>Submit a contact inquiry</p>
+                <form id="wrong-msg-form">
+                    <div class="form-group">
+                        <label for="contact-name">Your Name</label>
+                        <input type="text" id="contact-name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" rows="3" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                <div id="wrong-msg-result"></div>
+            </section>
+
+            <!-- BUG-MEDIUM-04: Dropdown has duplicate options -->
+            <section class="button-section" data-bug-id="BUG-MEDIUM-04">
+                <h3>🟡 Country Selection</h3>
+                <p>Select your country from the dropdown</p>
+                <form id="dropdown-form">
+                    <div class="form-group">
+                        <label for="country-select">Country</label>
+                        <select id="country-select">
+                            <option value="">-- Select Country --</option>
+                            <option value="us">United States</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="ca">Canada</option>
+                            <option value="us">United States</option> <!-- BUG: Duplicate -->
+                            <option value="au">Australia</option>
+                            <option value="de">Germany</option>
+                            <option value="fr">France</option>
+                            <option value="ca">Canada</option> <!-- BUG: Duplicate -->
+                            <option value="jp">Japan</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Confirm Selection</button>
+                </form>
+            </section>
+
+            <!-- BUG-HARD-04: Form clears all data on validation error -->
+            <section class="button-section" data-bug-id="BUG-HARD-04">
+                <h3>🟠 Registration Form</h3>
+                <p>Complete the registration (phone validation is strict)</p>
+                <form id="clear-form">
+                    <div class="form-group">
+                        <label for="clear-username">Username</label>
+                        <input type="text" id="clear-username" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="clear-email">Email</label>
+                        <input type="text" id="clear-email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="clear-phone">Phone (10 digits)</label>
+                        <input type="text" id="clear-phone" placeholder="Enter phone number">
+                    </div>
+                    <button type="submit" class="btn">Register</button>
+                </form>
+                <div id="clear-result"></div>
+            </section>
+
+            <!-- BUG-EXPERT-05: LocalStorage corruption -->
+            <section class="button-section" data-bug-id="BUG-EXPERT-05">
+                <h3>🔴 Data Persistence</h3>
+                <p>Save and load data from localStorage (try special characters)</p>
+                <div class="form-group">
+                    <label for="storage-input">Enter Data</label>
+                    <input type="text" id="storage-input" placeholder="Enter any text">
+                </div>
+                <div class="button-group">
+                    <button id="save-storage" class="btn">Save to Storage</button>
+                    <button id="load-storage" class="btn btn-secondary">Load from Storage</button>
+                </div>
+                <div id="storage-result" class="memory-status"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buggy Page - For QA Training Purposes</p>
+            <a href="../cheatsheet.html" class="cheatsheet-link">📋</a>
+        </div>
+    </footer>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>
