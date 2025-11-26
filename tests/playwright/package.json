@@ -1,0 +1,23 @@
+{
+  "name": "buggy-page-tests",
+  "version": "1.0.0",
+  "description": "Playwright tests for Buggy Page QA training site",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:report": "npx playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "qa",
+    "training"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}

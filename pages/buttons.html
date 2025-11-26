@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons - Buggy Page</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.html">🐛 Buggy Page</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="forms.html">Forms</a></li>
+                <li><a href="buttons.html" class="active">Buttons</a></li>
+                <li><a href="links.html">Links</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>🔘 Buggy Buttons</h1>
+            <p class="subtitle">Interactive elements with various bugs</p>
+        </section>
+
+        <div class="buttons-container">
+            <!-- BUG-EASY-03: Typo in button text -->
+            <section class="button-section" data-bug-id="BUG-EASY-03">
+                <h3>🟢 Standard Buttons</h3>
+                <p>Basic buttons with some issues</p>
+                <div class="button-group">
+                    <button class="btn">Sbumit</button> <!-- BUG: Typo - "Sbumit" instead of "Submit" -->
+                    <button class="btn btn-secondary">Cancle</button> <!-- BUG: Typo - "Cancle" instead of "Cancel" -->
+                    <button class="btn btn-danger">Delet</button> <!-- BUG: Typo - "Delet" instead of "Delete" -->
+                </div>
+            </section>
+
+            <!-- BUG-MEDIUM-05: Counter with wrong increment -->
+            <section class="button-section" data-bug-id="BUG-MEDIUM-05">
+                <h3>🟡 Counter Widget</h3>
+                <p>Click to increment the counter</p>
+                <div class="counter-widget">
+                    <p>Count: <span id="page-counter">0</span></p>
+                    <button id="page-increment-btn" class="btn">Increment by 1</button>
+                </div>
+            </section>
+
+            <!-- BUG-HARD-01: Race condition button -->
+            <section class="button-section" data-bug-id="BUG-HARD-01">
+                <h3>🟠 Delayed Action Button</h3>
+                <p>This button has a timing issue</p>
+                <div class="button-group">
+                    <button id="delayed-btn" class="btn">Perform Action</button>
+                </div>
+                <div id="delayed-result" class="memory-status"></div>
+            </section>
+
+            <!-- BUG-HARD-02: Dynamic IDs -->
+            <section class="button-section" data-bug-id="BUG-HARD-02">
+                <h3>🟠 Dynamic ID Buttons</h3>
+                <p>These buttons have IDs that change on page refresh</p>
+                <div class="button-group">
+                    <button class="btn dynamic-id">Dynamic Button 1</button>
+                    <button class="btn btn-secondary dynamic-id">Dynamic Button 2</button>
+                    <button class="btn btn-danger dynamic-id">Dynamic Button 3</button>
+                </div>
+                <p class="memory-status">Refresh the page and check the button IDs in DevTools</p>
+            </section>
+
+            <!-- BUG-HARD-03: Viewport dependent button -->
+            <section class="button-section viewport-dependent" data-bug-id="BUG-HARD-03">
+                <h3>🟠 Responsive Button</h3>
+                <p>This button only works on desktop viewport (>768px)</p>
+                <div class="button-group">
+                    <button class="btn viewport-btn" onclick="alert('Button clicked!')">Desktop Only Button</button>
+                </div>
+                <p class="memory-status">Try resizing your browser window</p>
+            </section>
+
+            <!-- BUG-EXPERT-01: Flaky button -->
+            <section class="button-section" data-bug-id="BUG-EXPERT-01">
+                <h3>🔴 Flaky Button</h3>
+                <p>This button randomly fails ~30% of clicks</p>
+                <div class="button-group">
+                    <button id="flaky-btn" class="btn">Click Me (Maybe)</button>
+                </div>
+                <div id="flaky-result" class="memory-status"></div>
+            </section>
+
+            <!-- BUG-EXPERT-02: Memory leak button -->
+            <section class="button-section" data-bug-id="BUG-EXPERT-02">
+                <h3>🔴 Memory Leak Demo</h3>
+                <p>Each click causes a memory leak</p>
+                <div class="button-group">
+                    <button id="memory-leak-btn" class="btn btn-danger">Leak Memory</button>
+                </div>
+                <div id="leak-status" class="memory-status"></div>
+            </section>
+
+            <!-- BUG-EXPERT-03: Shadow DOM button -->
+            <section class="button-section" data-bug-id="BUG-EXPERT-03">
+                <h3>🔴 Shadow DOM Element</h3>
+                <p>Interactive element inside Shadow DOM</p>
+                <div id="shadow-host" class="shadow-host"></div>
+            </section>
+
+            <!-- BUG-EXPERT-06: Double click required -->
+            <section class="button-section" data-bug-id="BUG-EXPERT-06">
+                <h3>🔴 Double Click Button</h3>
+                <p>This button only fires its event on the second click</p>
+                <div class="button-group">
+                    <button id="double-click-btn" class="btn">Click Once (or Twice?)</button>
+                </div>
+                <div id="double-click-result" class="memory-status"></div>
+            </section>
+
+            <!-- BUG-HARD-05: Infinite scroll -->
+            <section class="button-section" data-bug-id="BUG-HARD-05">
+                <h3>🟠 Load More (Infinite Scroll)</h3>
+                <p>Loads more items, but breaks after 3 loads</p>
+                <div class="scroll-container" id="scroll-container">
+                    <div class="scroll-item">Initial Item 1</div>
+                    <div class="scroll-item">Initial Item 2</div>
+                    <div class="scroll-item">Initial Item 3</div>
+                </div>
+                <button id="load-more" class="btn" style="margin-top: 1rem;">Load More</button>
+            </section>
+
+            <!-- BUG-EXPERT-04: iFrame timing -->
+            <section class="button-section" data-bug-id="BUG-EXPERT-04">
+                <h3>🔴 iFrame with Timing Issues</h3>
+                <p>Content loads with unpredictable delay</p>
+                <div id="iframe-container" class="iframe-container">
+                    <p class="loading-spinner">Loading iFrame content...</p>
+                </div>
+                <div id="iframe-result" class="memory-status"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Buggy Page - For QA Training Purposes</p>
+            <a href="../cheatsheet.html" class="cheatsheet-link">📋</a>
+        </div>
+    </footer>
+
+    <script src="../js/app.js"></script>
+    <script>
+        // Additional counter for buttons page
+        document.addEventListener('DOMContentLoaded', function() {
+            const pageIncrementBtn = document.getElementById('page-increment-btn');
+            const pageCounter = document.getElementById('page-counter');
+            
+            if (pageIncrementBtn && pageCounter) {
+                let count = 0;
+                pageIncrementBtn.addEventListener('click', function() {
+                    // BUG-MEDIUM-05: Increments by 2 instead of 1
+                    count += 2;
+                    pageCounter.textContent = count;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
