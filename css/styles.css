@@ -89,7 +89,6 @@ main {
     margin-bottom: 1rem;
 }
 
-/* BUG-EASY-05: Lorem Ipsum text shouldn't be visible - but it is */
 .lorem-text {
     color: var(--text-secondary);
     font-style: italic;
@@ -202,9 +201,8 @@ main {
     margin-top: 0.5rem;
 }
 
-/* BUG-MEDIUM-06: Hidden element that should be visible */
 .hidden-section {
-    display: none; /* This should be visible but is hidden */
+    display: none;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     padding: 2rem;
     border-radius: 12px;
@@ -534,12 +532,10 @@ footer {
     border-radius: 8px;
 }
 
-/* BUG-HARD-03: Element only clickable in specific viewport sizes */
 .viewport-dependent {
     padding: 1rem;
 }
 
-/* This button is only clickable when viewport is > 768px */
 @media (max-width: 768px) {
     .viewport-btn {
         pointer-events: none;
