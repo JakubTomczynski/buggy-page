@@ -28,14 +28,12 @@
         </section>
 
         <div class="form-container">
-            <!-- BUG-MEDIUM-01: Form accepts invalid email format -->
             <section class="button-section" data-bug-id="BUG-MEDIUM-01">
                 <h3>🟡 Email Validation</h3>
                 <p>Try submitting various email formats</p>
                 <form id="email-form">
                     <div class="form-group">
                         <label for="email-input">Email Address</label>
-                        <!-- BUG-EASY-04: Wrong placeholder text -->
                         <input type="text" id="email-input" placeholder="Enter your phone number" data-bug-id="BUG-EASY-04">
                     </div>
                     <button type="submit" class="btn">Validate Email</button>
@@ -43,14 +41,12 @@
                 <div id="email-result"></div>
             </section>
 
-            <!-- BUG-MEDIUM-02: Required field not actually required -->
-            <section class="button-section" data-bug-id="BUG-MEDIUM-02">
+                        <section class="button-section" data-bug-id="BUG-MEDIUM-02">
                 <h3>🟡 Required Field Form</h3>
                 <p>This field is marked as required, but is it really?</p>
                 <form id="required-form">
                     <div class="form-group">
                         <label for="required-input">Required Username *</label>
-                        <!-- BUG: Label says "Required" but the field has no validation -->
                         <input type="text" id="required-input" placeholder="Enter username">
                     </div>
                     <button type="submit" class="btn">Submit</button>
@@ -58,8 +54,7 @@
                 <div id="required-result"></div>
             </section>
 
-            <!-- BUG-MEDIUM-03: Wrong success message -->
-            <section class="button-section" data-bug-id="BUG-MEDIUM-03">
+                        <section class="button-section" data-bug-id="BUG-MEDIUM-03">
                 <h3>🟡 Contact Form</h3>
                 <p>Submit a contact inquiry</p>
                 <form id="wrong-msg-form">
@@ -76,8 +71,7 @@
                 <div id="wrong-msg-result"></div>
             </section>
 
-            <!-- BUG-MEDIUM-04: Dropdown has duplicate options -->
-            <section class="button-section" data-bug-id="BUG-MEDIUM-04">
+                        <section class="button-section" data-bug-id="BUG-MEDIUM-04">
                 <h3>🟡 Country Selection</h3>
                 <p>Select your country from the dropdown</p>
                 <form id="dropdown-form">
@@ -88,11 +82,11 @@
                             <option value="us">United States</option>
                             <option value="uk">United Kingdom</option>
                             <option value="ca">Canada</option>
-                            <option value="us">United States</option> <!-- BUG: Duplicate -->
+                            <option value="us">United States</option>
                             <option value="au">Australia</option>
                             <option value="de">Germany</option>
                             <option value="fr">France</option>
-                            <option value="ca">Canada</option> <!-- BUG: Duplicate -->
+                            <option value="ca">Canada</option>
                             <option value="jp">Japan</option>
                         </select>
                     </div>
@@ -100,8 +94,7 @@
                 </form>
             </section>
 
-            <!-- BUG-HARD-04: Form clears all data on validation error -->
-            <section class="button-section" data-bug-id="BUG-HARD-04">
+                        <section class="button-section" data-bug-id="BUG-HARD-04">
                 <h3>🟠 Registration Form</h3>
                 <p>Complete the registration (phone validation is strict)</p>
                 <form id="clear-form">
@@ -122,8 +115,7 @@
                 <div id="clear-result"></div>
             </section>
 
-            <!-- BUG-EXPERT-05: LocalStorage corruption -->
-            <section class="button-section" data-bug-id="BUG-EXPERT-05">
+                        <section class="button-section" data-bug-id="BUG-EXPERT-05">
                 <h3>🔴 Data Persistence</h3>
                 <p>Save and load data from localStorage (try special characters)</p>
                 <div class="form-group">
