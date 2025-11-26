@@ -1,10 +1,8 @@
 /**
- * Buggy Page - JavaScript with Intentional Bugs
- * This file contains various bugs for QA training purposes
+ * Buggy Page - JavaScript
  */
 
 // Counter functionality
-// BUG-MEDIUM-05: Counter increments by 2 instead of 1
 document.addEventListener('DOMContentLoaded', function() {
     const incrementBtn = document.getElementById('increment-btn');
     const counterDisplay = document.getElementById('main-counter');
@@ -12,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (incrementBtn && counterDisplay) {
         let count = 0;
         incrementBtn.addEventListener('click', function() {
-            count += 2; // BUG: Should be += 1
+            count += 2;
             counterDisplay.textContent = count;
         });
     }
@@ -48,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFormHandlers();
 });
 
-// BUG-HARD-02: Dynamic IDs that change on page refresh
+// Dynamic IDs that change on page refresh
 function initDynamicIds() {
     const dynamicElements = document.querySelectorAll('.dynamic-id');
     dynamicElements.forEach(el => {
@@ -58,14 +56,13 @@ function initDynamicIds() {
     });
 }
 
-// BUG-EXPERT-01: Flaky element - randomly fails ~30% of clicks
+// Flaky element
 function initFlakyElement() {
     const flakyBtn = document.getElementById('flaky-btn');
     const flakyResult = document.getElementById('flaky-result');
     
     if (flakyBtn && flakyResult) {
         flakyBtn.addEventListener('click', function(e) {
-            // 30% chance of failure
             if (Math.random() < 0.3) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -79,7 +76,7 @@ function initFlakyElement() {
     }
 }
 
-// BUG-HARD-01: Race condition - button only works after 2-second delay
+// Delayed button
 function initDelayedButton() {
     const delayedBtn = document.getElementById('delayed-btn');
     const delayedResult = document.getElementById('delayed-result');
@@ -87,7 +84,6 @@ function initDelayedButton() {
     if (delayedBtn && delayedResult) {
         let isReady = false;
         
-        // Button only becomes functional after 2 seconds
         setTimeout(() => {
             isReady = true;
             delayedBtn.classList.add('ready');
@@ -105,7 +101,7 @@ function initDelayedButton() {
     }
 }
 
-// BUG-EXPERT-03: Element inside shadow DOM with bugs
+// Shadow DOM element
 function initShadowDOM() {
     const shadowHost = document.getElementById('shadow-host');
     
@@ -147,7 +143,6 @@ function initShadowDOM() {
             </div>
         `;
         
-        // BUG: Event listener doesn't properly update result on first click
         const shadowBtn = shadow.getElementById('shadow-btn');
         const shadowInput = shadow.getElementById('shadow-input');
         const shadowResult = shadow.getElementById('shadow-result');
@@ -155,7 +150,6 @@ function initShadowDOM() {
         let clickCount = 0;
         shadowBtn.addEventListener('click', function() {
             clickCount++;
-            // BUG: Only works properly on second click
             if (clickCount % 2 === 1) {
                 shadowResult.textContent = 'Processing...';
             } else {
@@ -165,20 +159,19 @@ function initShadowDOM() {
     }
 }
 
-// BUG-HARD-05: Infinite scroll that breaks after 3 loads
+// Infinite scroll
 function initInfiniteScroll() {
     const scrollContainer = document.getElementById('scroll-container');
     const loadMore = document.getElementById('load-more');
     
     if (scrollContainer && loadMore) {
         let loadCount = 0;
-        const maxLoads = 3; // Bug: breaks after 3 loads
+        const maxLoads = 3;
         
         loadMore.addEventListener('click', function() {
             loadCount++;
             
             if (loadCount > maxLoads) {
-                // BUG: After 3 loads, it throws an error and stops working
                 loadMore.disabled = true;
                 loadMore.textContent = 'Error: Cannot load more';
                 loadMore.classList.add('btn-danger');
@@ -197,12 +190,11 @@ function initInfiniteScroll() {
     }
 }
 
-// BUG-EXPERT-04: iFrame with timing issues
+// iFrame timing
 function initIframeTiming() {
     const iframeContainer = document.getElementById('iframe-container');
     
     if (iframeContainer) {
-        // BUG: iframe loads content with unpredictable delay
         const iframe = document.createElement('iframe');
         iframe.id = 'timing-iframe';
         iframe.setAttribute('data-bug-id', 'BUG-EXPERT-04');
@@ -243,7 +235,7 @@ function initIframeTiming() {
     }
 }
 
-// BUG-EXPERT-05: LocalStorage that corrupts on certain inputs
+// LocalStorage bug
 function initLocalStorageBug() {
     const storageInput = document.getElementById('storage-input');
     const saveBtn = document.getElementById('save-storage');
@@ -254,7 +246,6 @@ function initLocalStorageBug() {
         saveBtn.addEventListener('click', function() {
             const value = storageInput.value;
             
-            // BUG: Corrupts data if input contains special characters
             if (value.includes('<') || value.includes('>') || value.includes('&')) {
                 // Intentionally corrupt the data
                 localStorage.setItem('buggy-data', '[CORRUPTED]' + btoa(value));
@@ -285,7 +276,7 @@ function initLocalStorageBug() {
     }
 }
 
-// BUG-EXPERT-06: Event listener that only fires on second click
+// Double click listener
 function initDoubleClickListener() {
     const doubleClickBtn = document.getElementById('double-click-btn');
     const doubleClickResult = document.getElementById('double-click-result');
@@ -295,7 +286,6 @@ function initDoubleClickListener() {
         
         doubleClickBtn.addEventListener('click', function() {
             if (firstClick) {
-                // BUG: First click does nothing
                 firstClick = false;
                 doubleClickResult.textContent = '';
                 return;
@@ -307,7 +297,7 @@ function initDoubleClickListener() {
     }
 }
 
-// BUG-EXPERT-02: Memory leak on repeated action
+// Memory leak demo
 function initMemoryLeak() {
     const leakBtn = document.getElementById('memory-leak-btn');
     const leakStatus = document.getElementById('leak-status');
@@ -319,7 +309,6 @@ function initMemoryLeak() {
         leakBtn.addEventListener('click', function() {
             clickCount++;
             
-            // BUG: Each click adds 1MB of data that never gets cleaned up
             const largeArray = new Array(1024 * 1024).fill('x');
             leakedData.push(largeArray);
             
@@ -335,7 +324,7 @@ function initMemoryLeak() {
 
 // Form Handlers
 function initFormHandlers() {
-    // BUG-MEDIUM-01: Form accepts invalid email format
+    // Email form handler
     const emailForm = document.getElementById('email-form');
     const emailInput = document.getElementById('email-input');
     const emailResult = document.getElementById('email-result');
@@ -345,7 +334,6 @@ function initFormHandlers() {
             e.preventDefault();
             const email = emailInput.value;
             
-            // BUG: Very weak email validation - accepts invalid formats
             if (email.includes('@')) {
                 emailResult.textContent = 'Email accepted!';
                 emailResult.className = 'success-message';
@@ -356,33 +344,31 @@ function initFormHandlers() {
         });
     }
     
-    // BUG-MEDIUM-02: Required field not actually required
+    // Required field form handler
     const requiredForm = document.getElementById('required-form');
     const requiredResult = document.getElementById('required-result');
     
     if (requiredForm && requiredResult) {
         requiredForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // BUG: Doesn't check if required field is empty
             requiredResult.textContent = 'Form submitted successfully!';
             requiredResult.className = 'success-message';
         });
     }
     
-    // BUG-MEDIUM-03: Button submits form but shows wrong success message
+    // Wrong message form handler
     const wrongMsgForm = document.getElementById('wrong-msg-form');
     const wrongMsgResult = document.getElementById('wrong-msg-result');
     
     if (wrongMsgForm && wrongMsgResult) {
         wrongMsgForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // BUG: Shows wrong message
-            wrongMsgResult.textContent = 'Password reset email sent!'; // Wrong message for a contact form
+            wrongMsgResult.textContent = 'Password reset email sent!';
             wrongMsgResult.className = 'success-message';
         });
     }
     
-    // BUG-HARD-04: Form clears all data on validation error
+    // Registration form handler
     const clearForm = document.getElementById('clear-form');
     const clearResult = document.getElementById('clear-result');
     const clearUsername = document.getElementById('clear-username');
@@ -393,13 +379,11 @@ function initFormHandlers() {
         clearForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validate phone (must be 10 digits)
             const phone = clearPhone ? clearPhone.value : '';
             if (!/^\d{10}$/.test(phone)) {
                 clearResult.textContent = 'Invalid phone number (must be 10 digits)';
                 clearResult.className = 'error-message';
                 
-                // BUG: Clears ALL form data on error
                 if (clearUsername) clearUsername.value = '';
                 if (clearEmail) clearEmail.value = '';
                 if (clearPhone) clearPhone.value = '';
@@ -411,9 +395,6 @@ function initFormHandlers() {
         });
     }
 }
-
-// Viewport dependent button (BUG-HARD-03)
-// This is handled by CSS - button not clickable on small viewports
 
 // Listen for iframe messages
 window.addEventListener('message', function(event) {

@@ -28,18 +28,16 @@
         </section>
 
         <div class="buttons-container">
-            <!-- BUG-EASY-03: Typo in button text -->
             <section class="button-section" data-bug-id="BUG-EASY-03">
                 <h3>🟢 Standard Buttons</h3>
                 <p>Basic buttons with some issues</p>
                 <div class="button-group">
-                    <button class="btn">Sbumit</button> <!-- BUG: Typo - "Sbumit" instead of "Submit" -->
-                    <button class="btn btn-secondary">Cancle</button> <!-- BUG: Typo - "Cancle" instead of "Cancel" -->
-                    <button class="btn btn-danger">Delet</button> <!-- BUG: Typo - "Delet" instead of "Delete" -->
+                    <button class="btn">Sbumit</button>
+                    <button class="btn btn-secondary">Cancle</button>
+                    <button class="btn btn-danger">Delet</button>
                 </div>
             </section>
 
-            <!-- BUG-MEDIUM-05: Counter with wrong increment -->
             <section class="button-section" data-bug-id="BUG-MEDIUM-05">
                 <h3>🟡 Counter Widget</h3>
                 <p>Click to increment the counter</p>
@@ -49,7 +47,6 @@
                 </div>
             </section>
 
-            <!-- BUG-HARD-01: Race condition button -->
             <section class="button-section" data-bug-id="BUG-HARD-01">
                 <h3>🟠 Delayed Action Button</h3>
                 <p>This button has a timing issue</p>
@@ -59,7 +56,6 @@
                 <div id="delayed-result" class="memory-status"></div>
             </section>
 
-            <!-- BUG-HARD-02: Dynamic IDs -->
             <section class="button-section" data-bug-id="BUG-HARD-02">
                 <h3>🟠 Dynamic ID Buttons</h3>
                 <p>These buttons have IDs that are dynamic</p>
@@ -71,7 +67,6 @@
                 <p class="memory-status">Refresh the page and check the button IDs in DevTools</p>
             </section>
 
-            <!-- BUG-HARD-03: Viewport dependent button -->
             <section class="button-section viewport-dependent" data-bug-id="BUG-HARD-03">
                 <h3>🟠 Responsive Button</h3>
                 <p>Viewport: (>768px)</p>
@@ -81,7 +76,6 @@
                 <p class="memory-status">Try resizing your browser window</p>
             </section>
 
-            <!-- BUG-EXPERT-01: Flaky button -->
             <section class="button-section" data-bug-id="BUG-EXPERT-01">
                 <h3>🔴 Flaky Button</h3>
                 <p>Submit this button!</p>
@@ -91,7 +85,6 @@
                 <div id="flaky-result" class="memory-status"></div>
             </section>
 
-            <!-- BUG-EXPERT-02: Memory leak button -->
             <section class="button-section" data-bug-id="BUG-EXPERT-02">
                 <h3>🔴 Memory Leak Demo</h3>
                 <p>Each click causes a memory leak</p>
@@ -101,14 +94,12 @@
                 <div id="leak-status" class="memory-status"></div>
             </section>
 
-            <!-- BUG-EXPERT-03: Shadow DOM button -->
             <section class="button-section" data-bug-id="BUG-EXPERT-03">
                 <h3>🔴 Shadow DOM Element</h3>
                 <p>Interactive element inside Shadow DOM</p>
                 <div id="shadow-host" class="shadow-host"></div>
             </section>
 
-            <!-- BUG-EXPERT-06: Double click required -->
             <section class="button-section" data-bug-id="BUG-EXPERT-06">
                 <h3>🔴 Double Click Button</h3>
                 <p>This button is on fire</p>
@@ -118,7 +109,6 @@
                 <div id="double-click-result" class="memory-status"></div>
             </section>
 
-            <!-- BUG-HARD-05: Infinite scroll -->
             <section class="button-section" data-bug-id="BUG-HARD-05">
                 <h3>🟠 Load More (Infinite Scroll)</h3>
                 <p>Loads more items, but breaks after 3 loads</p>
@@ -130,7 +120,6 @@
                 <button id="load-more" class="btn" style="margin-top: 1rem;">Load More</button>
             </section>
 
-            <!-- BUG-EXPERT-04: iFrame timing -->
             <section class="button-section" data-bug-id="BUG-EXPERT-04">
                 <h3>🔴 iFrame with Timing Issues</h3>
                 <p>Content loads with unpredictable delay</p>
@@ -159,7 +148,6 @@
             if (pageIncrementBtn && pageCounter) {
                 let count = 0;
                 pageIncrementBtn.addEventListener('click', function() {
-                    // BUG-MEDIUM-05: Increments by 2 instead of 1
                     count += 2;
                     pageCounter.textContent = count;
                 });
