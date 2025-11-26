@@ -249,7 +249,9 @@ test.describe('Hard Bugs', () => {
     const delayedBtn = page.locator('#delayed-btn');
     const result = page.locator('#delayed-result');
     
-    // Wait for the button to become ready
+    // Note: Using waitForTimeout here is intentional to demonstrate how to handle
+    // the race condition bug. In real tests, prefer waitForSelector or waitForFunction.
+    // This is for training purposes to show one way to work around timing issues.
     await page.waitForTimeout(2500);
     await delayedBtn.click();
     
