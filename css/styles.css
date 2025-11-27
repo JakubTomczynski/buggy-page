@@ -223,6 +223,7 @@ main {
 .demo-container {
     display: flex;
     justify-content: center;
+    align-items: start;
     gap: 3rem;
     flex-wrap: wrap;
 }
@@ -236,7 +237,7 @@ main {
 }
 
 .counter-widget #main-counter {
-    font-size: 2rem;
+    font-size: inherit;
     font-weight: bold;
     color: var(--primary-color);
 }
